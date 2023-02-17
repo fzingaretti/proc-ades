@@ -156,7 +156,7 @@ COPY assets/scripts/removeservice.sh /opt/t2scripts/removeservice.sh
 RUN chmod +x /opt/t2scripts/prepareUserSpace.sh /opt/t2scripts/removeservice.sh                     && \
     echo "alias ll='ls -ltr'" >> $HOME/.bashrc                                                      && \
     yum install mlocate -y
-
+RUN chmod 777 -R /var/log/httpd
 CMD ["/opt/t2scripts/entrypoint.sh"]
 
 EXPOSE 80
